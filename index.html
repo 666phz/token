@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cosmic Token Manager</title>
+<link rel="stylesheet" href="/static/style.css?v=2"/>
+</head>
+<body>
+
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <div class="brand-mark">✦</div>
+    <h1 class="auth-title">COSMIC</h1>
+    <p class="auth-sub">TOKEN MANAGER</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-auth="login">Đăng nhập</button>
+      <button class="auth-tab" data-auth="register">Đăng ký</button>
+    </div>
+    <label>Username</label>
+    <input id="authUser" placeholder="username" autocomplete="username"/>
+    <label>Password</label>
+    <input id="authPass" type="password" placeholder="••••••••" autocomplete="current-password"/>
+    <button id="authBtn" class="btn-primary full">Đăng nhập</button>
+  </div>
+</div>
+
+<div id="appScreen" class="app hidden">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark small">✦</div>
+      <div class="brand-text">COSMIC</div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-section">
+        <div class="nav-label">Tổng quan</div>
+        <a class="nav-item active" data-tab="overview"><span class="nav-ico">◈</span>Dashboard</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">Mail</div>
+        <a class="nav-item" data-tab="mail"><span class="nav-ico">✉</span>Temp Mail</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">Self Bot</div>
+        <a class="nav-item" data-tab="token"><span class="nav-ico">🔑</span>Token</a>
+        <a class="nav-item" data-tab="voice"><span class="nav-ico">🎙</span>Treo Voice</a>
+        <a class="nav-item" data-tab="status"><span class="nav-ico">🎨</span>Status</a>
+        <a class="nav-item" data-tab="badge"><span class="nav-ico">🏅</span>Badge</a>
+        <a class="nav-item" data-tab="nick"><span class="nav-ico">👤</span>Nick</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">Khác</div>
+        <a class="nav-item" data-tab="name"><span class="nav-ico">📛</span>Name</a>
+      </div>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="user-pill">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <div class="user-name" id="userName">—</div>
+      </div>
+      <button class="btn-ghost sm full" onclick="logout()">Đăng xuất</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <header class="main-head">
+      <h1>Chào mừng trở lại, <span id="welcomeName" class="accent">bạn</span> 👋</h1>
+      <p class="muted">Theo dõi tất cả các hoạt động dưới đây.</p>
+    </header>
+
+    <div id="tabContent" class="tab-content"></div>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<div id="adminModal" class="modal hidden">
+  <div class="modal-card">
+    <h2>🔐 Admin Access</h2>
+    <label>Nhập key</label>
+    <input id="adminKey" type="password" placeholder="key..."/>
+    <div class="row gap mt-3">
+      <button class="btn-primary" onclick="adminUnlock()">Mở khóa</button>
+      <button class="btn-ghost" onclick="closeAdmin()">Đóng</button>
+    </div>
+    <div id="adminResult" class="admin-result"></div>
+  </div>
+</div>
+
+<script src="/static/app.js?v=2"></script>
+</body>
+</html>
